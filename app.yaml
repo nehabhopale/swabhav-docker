@@ -2,5 +2,10 @@ version: '3'
 services:
   todoapp:
     image: 26084294/todo
-    ports:
-      - 85:80
+    # ports:
+    #   - 85:80
+    command: >
+      bash -c "cd var/www/html
+      && service apache2 start
+      && service apache2 status
+      && tail -F anything"
