@@ -1,0 +1,6 @@
+version: '3'
+services:
+  todoapp:
+    image: 26084294/todo
+    ports:
+      - 85:80
