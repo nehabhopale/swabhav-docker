@@ -1,0 +1,20 @@
+version: "3.2"
+services:
+  dbpostgress:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    # ports:
+    #   - 4321:5432
+    # volumes:
+    #   # - /data:/data/db    //for host named(data folder under this folder)
+    #   - mongodata:/data/db
+    container_name: postgres-docker
+  myapp:
+    image: 26084294/postgressapp
+    depends_on:
+      - dbpostgress
+    ports:
+      - 5000:5000
+    container_name: node-server-app
